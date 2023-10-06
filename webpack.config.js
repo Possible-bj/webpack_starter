@@ -23,7 +23,7 @@ export default {
     hot: true,
     compress: true,
     historyApiFallback: true,
-    contentBase: "./dist",
+    // contentBase: "./dist",
   },
   module: {
     rules: [
