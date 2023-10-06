@@ -1,22 +1,22 @@
-import path, { dirname } from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import path, { dirname } from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export default {
-  mode: 'development',
+  mode: "development",
   entry: {
-    bundle: path.resolve(dirname(''), 'src/index.js'),
+    bundle: path.resolve(dirname(""), "src/index.js"),
   },
   output: {
-    path: path.resolve(dirname(''), 'dist'),
-    filename: '[name][contenthash].js',
+    path: path.resolve(dirname(""), "dist"),
+    filename: "[name][contenthash].js",
     clean: true,
-    assetModuleFilename: '[name][ext]',
+    assetModuleFilename: "[name][ext]",
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   devServer: {
     static: {
-      directory: path.resolve(dirname(''), 'dist'),
+      directory: path.resolve(dirname(""), "dist"),
     },
     port: 3000,
     open: true,
@@ -28,28 +28,28 @@ export default {
     rules: [
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
       },
       {
         test: /\.(png|jpg|gif|svg|jpeg)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
-      filename: 'index.html',
-      template: 'src/template.html',
+      title: "Webpack App",
+      filename: "index.html",
+      template: "src/template.html",
     }),
     new BundleAnalyzerPlugin(),
   ],
-}
+};
 
 // {
 //   test: /\.js$/,
